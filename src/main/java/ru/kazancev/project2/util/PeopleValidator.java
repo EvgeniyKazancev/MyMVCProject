@@ -1,10 +1,11 @@
 package ru.kazancev.project2.util;
 
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import ru.kazancev.project2.models.Person;
 import ru.kazancev.project2.services.PeopleServices;
-
+@Component
 public class PeopleValidator implements Validator {
     private final PeopleServices peopleServices;
 
