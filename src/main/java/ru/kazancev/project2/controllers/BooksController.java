@@ -89,7 +89,7 @@ public class BooksController {
 
     @GetMapping("/{title}")
     public String bookTitle(@RequestParam(value = "titel") String title) {
-        return bookServices.findBookTitle(title);
+        return "";
     }
 
 
