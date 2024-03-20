@@ -82,6 +82,7 @@ public class BooksController {
         bookServices.release(id);
         return "redirect:/books/" + id;
     }
+    @PatchMapping("/{id}/assign")
     public String assign(@PathVariable("id") int id, @ModelAttribute("person") Person selectedPerson){
         bookServices.assign(id,selectedPerson);
         return "redirect:/books/" + id;
@@ -91,6 +92,15 @@ public class BooksController {
     public String bookTitle(@RequestParam(value = "titel") String title) {
         return "";
     }
+    @GetMapping("/search")
+    public String searchPage() {
+        return "books/search";
+    }
 
+    @PostMapping("/search")
+    public String makeSearch(Model model, @RequestParam("query") String query) {
+        model.addAttribute("books",bookServices.findBookTitle(query));
+        return "books/search";
+    }
 
 }
